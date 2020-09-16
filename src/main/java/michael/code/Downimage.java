@@ -21,7 +21,7 @@ public class Downimage {
 			httpUrl = (HttpURLConnection) url.openConnection();
 			httpUrl.connect();
 			bis = new BufferedInputStream(httpUrl.getInputStream());
-			fos = new FileOutputStream("D:/picture/a.png");
+			fos = new FileOutputStream("F:/picture/a.png");
 			while ((size = bis.read(buf)) != -1) {
 				fos.write(buf, 0, size);
 			}
