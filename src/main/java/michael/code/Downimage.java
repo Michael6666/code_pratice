@@ -40,7 +40,6 @@ public class Downimage {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		Downimage dw = new Downimage();
 		dw.saveToFile("http://tzwjw.gaj.taizhou.gov.cn/files/103216/1710/y_98c2452455.JPG");

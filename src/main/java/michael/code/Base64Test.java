@@ -14,9 +14,9 @@ import sun.misc.BASE64Encoder;
 public class Base64Test {
 
 	public static void main(String[] args) throws Exception {
-//		String base64Code =encodeBase64File("E:/code/jsgaosp-manage/jsgaosp-manage-web/src/main/webapp/app/img/lg.png");
-		String base64Code =readImg("http://tzwjw.gaj.taizhou.gov.cn/files/103216/1710/y_98c2452455.JPG");
-        System.out.println(base64Code);
+		String base64Code =readImg("E:/code/jsgaosp-manage/jsgaosp-manage-web/src/main/webapp/app/img/lg.png");
+//		String base64Code =readImg("http://tzwjw.gaj.taizhou.gov.cn/files/103216/1710/y_98c2452455.JPG");
+//        System.out.println(base64Code);
         decoderBase64File(base64Code, "D:/picture/a.png");
 	}
 
@@ -51,9 +51,10 @@ public class Base64Test {
          }else if(urlOrPath.toLowerCase().startsWith("http")){ 
           //加载http途径的图片
             	URL url = new URL(urlOrPath);
-            	URLConnection openConnection = url.openConnection();
-    			in = openConnection.getInputStream();
-//    			in = url.openStream();    			           	
+//            	URLConnection openConnection = url.openConnection();
+//            	openConnection.connect();
+//    			in = openConnection.getInputStream();
+    			in = url.openStream();    			           	
             }else{ //加载本地路径的图片
                 File file = new File(urlOrPath);
                 if(!file.isFile() || !file.exists() || !file.canRead()){
@@ -99,6 +100,7 @@ public class Base64Test {
 	public static String base64ToStr(byte[] bytes) throws IOException {
 		String content = "";
 		content = new BASE64Encoder().encode(bytes);
+//		return content;
 		return content.trim().replaceAll("\n", "").replaceAll("\r", ""); //消除回车和换行
 	}
 
